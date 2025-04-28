@@ -1,0 +1,157 @@
+/* Contact.css */
+
+/* General Contact Section */
+.contact-section {
+    position: relative;
+    background: linear-gradient(135deg, #1e1e1e, #262626); /* Darker gradient for contrast */
+    min-height: 100vh;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    color: #ffffff;
+  }
+  
+  /* Floating Shapes for Contact Section */
+  .floating-shapes-contact {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .shape-contact {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(80px);
+  }
+  
+  .shape-contact-1 {
+    width: 250px;
+    height: 250px;
+    background: #a4c4ff; /* Soft blue for variety */
+    top: 15%;
+    left: -15%;
+    animation: floatShapeContact 8s ease-in-out infinite;
+  }
+  
+  .shape-contact-2 {
+    width: 350px;
+    height: 350px;
+    background: #97b5ff; /* Light blue for soft contrast */
+    bottom: -10%;
+    right: -15%;
+    animation: floatShapeContact 12s ease-in-out infinite;
+  }
+  
+  @keyframes floatShapeContact {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-25px) translateX(30px);
+    }
+  }
+  
+  /* Contact Form Container */
+  .contact-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Form Heading */
+  .text-primary {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00bcd4;  /* Contrasting teal */
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Card Styling */
+  .card {
+    border-radius: 15px;
+    background: #2a2a2a; /* Dark background for card */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Card Hover Effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3); /* Soft teal glow */
+  }
+  
+  /* Form Control Inputs */
+  .form-control {
+    background-color: #3a3a3a;  /* Slightly lighter background for form fields */
+    border: 1px solid #00bcd4;  /* Light teal border */
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+  }
+  
+  .form-control:focus {
+    border-color: #7eafff; /* Focus border */
+    box-shadow: 0 0 5px rgba(126, 175, 255, 0.7); /* Light blue shadow on focus */
+  }
+  
+  /* Button Styling */
+  .btn-primary {
+    background-color: #00bcd4;
+    border-color: #00bcd4;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7eafff;
+    border-color: #7eafff;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .text-primary {
+      font-size: 2rem;
+    }
+  
+    .card {
+      margin-bottom: 20px;
+    }
+  
+    .card-body {
+      padding: 15px;
+    }
+  
+    .form-control {
+      padding: 10px;
+    }
+  
+    .btn-primary {
+      padding: 8px 20px;
+    }
+  }
+  .social-media {
+    margin-top: 30px;
+  }
+  
+  .social-media h4 {
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  .social-icon {
+    color: #6c757d;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #007bff;
+    transform: scale(1.2);
+  }

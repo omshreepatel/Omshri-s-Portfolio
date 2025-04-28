@@ -1,0 +1,149 @@
+/* src/components/NavbarStyles.css */
+
+.custom-navbar {
+  background: linear-gradient(90deg, #0a0a0a, #121212); /* Dark smooth background */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.brand-name .highlight {
+  color: #00ffd5; /* Neon cyan color */
+}
+
+.navbar-toggler-custom {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+.navbar-toggler-custom:focus {
+  box-shadow: none;
+}
+
+.nav-link-custom {
+  font-size: 1.1rem;
+  color: #cccccc !important;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link-custom:hover {
+  color: #00ffd5 !important; /* Hover neon effect */
+  transform: scale(1.05);
+}
+
+.nav-link-custom.active {
+  color: #00ffd5 !important;
+}
+
+.resume-button {
+  background-color: #00ffd5;
+  color: #0a0a0a;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #00e6c0;
+  color: #0a0a0a;
+}
+/* src/components/NavbarStyles.css */
+
+/* Keep navbar-toggler (hamburger menu) button background black */
+.navbar-toggler-custom {
+  background-color: #0a0a0a; /* Black background */
+  border: 1px solid #0a0a0a; /* Black border */
+}
+
+/* Change icon color to white */
+.navbar-toggler-icon {
+  background-color: #ffffff; /* White icon */
+}
+
+/* Optional: Ensure the icon remains white when the button is hovered */
+.navbar-toggler-custom:hover .navbar-toggler-icon {
+  background-color: #ffffff; /* Keep icon white on hover */
+}
+/* src/components/NavbarStyles.css */
+
+/* Keep navbar-toggler (hamburger menu) button background black */
+.navbar-toggler-custom {
+  background-color: #0a0a0a; /* Black background */
+  border: 1px solid #0a0a0a; /* Black border */
+}
+
+/* Change icon color to white */
+.navbar-toggler-icon {
+  background-color: #ffffff; /* White icon */
+}
+
+/* Optional: Ensure the icon remains white when the button is hovered */
+.navbar-toggler-custom:hover .navbar-toggler-icon {
+  background-color: #ffffff; /* Keep icon white on hover */
+}
+
+/* Keep the brand name white */
+.brand-name {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ffffff !important; /* Ensure text color stays white */
+  letter-spacing: 1px;
+}
+
+.brand-name .highlight {
+  color: #00ffd5; /* Neon cyan color */
+}
+
+/* Ensure brand name remains white when menu is opened */
+.navbar-toggler-icon {
+  background-color: #ffffff; /* White color for menu icon */
+}
+
+.navbar-nav {
+  background-color: #0a0a0a; /* Keep black background when menu is open */
+}
+
+/* Keep the nav items and brand name white when the menu is opened */
+.navbar-collapse {
+  color: #ffffff; /* White text color for the nav items */
+}
+
+.nav-link-custom {
+  font-size: 1.1rem;
+  color: #cccccc !important; /* Light grey text */
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link-custom:hover {
+  color: #00ffd5 !important; /* Hover neon effect */
+  transform: scale(1.05);
+}
+
+.nav-link-custom.active {
+  color: #00ffd5 !important;
+}
+
+/* Styling the resume button */
+.resume-button {
+  background-color: #00ffd5;
+  color: #0a0a0a;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #00e6c0;
+  color: #0a0a0a;
+}

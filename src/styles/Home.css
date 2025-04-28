@@ -1,0 +1,136 @@
+/* src/styles/Home.css */
+
+.home-section {
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a, #121212);
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00ffd5, #00bfff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 1.3rem;
+}
+
+.highlight {
+  color: #00ffd5;
+  font-weight: 600;
+}
+
+.hero-button {
+  border: 2px solid #00ffd5;
+  color: #00ffd5;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #00ffd5;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px #00ffd5;
+}
+
+/* Floating Shapes */
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(80px);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: #00ffd5;
+  top: 10%;
+  left: -10%;
+  animation: floatShape 8s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: #00bfff;
+  bottom: -10%;
+  right: -10%;
+  animation: floatShape 10s ease-in-out infinite;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  background: #00ffd5;
+  bottom: 30%;
+  left: 50%;
+  animation: floatShape 12s ease-in-out infinite;
+}
+
+@keyframes floatShape {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
+.button-layout {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Chhote buttons right top corner */
+.small-buttons-right {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Chhote aur sundar buttons */
+.btn-custom {
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffffcc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 255, 213, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn-custom:hover {
+  background: #00ffd5;
+  color: #0a0a0a;
+  border-color: #00ffd5;
+  box-shadow: 0 0 12px #00ffd5, 0 0 20px #00ffd5;
+}

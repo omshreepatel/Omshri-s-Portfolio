@@ -1,0 +1,61 @@
+.skills-section {
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+  padding: 60px 0;
+  color: #ffffff;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00d4ff, #007bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skill-card {
+  background: #2a2a3d;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00d4ff;
+  margin-bottom: 15px;
+}
+
+.progress-bar-container {
+  background: #3a3a4d;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  position: relative;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #00d4ff, #007bff);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}

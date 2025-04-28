@@ -1,0 +1,202 @@
+/* src/styles/About.css
+
+.about-section {
+  position: relative;
+  background: linear-gradient(135deg, #1c1c1c, #2c2c2c);
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 80px;
+  color: #fff; }
+
+.about-container {
+  z-index: 1;  
+} 
+
+/* .text-gradient {
+  background: linear-gradient(90deg, #00bfff, #00ff80);   
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-button {
+  border: 2px solid #00bfff;   
+  color: #00bfff;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #00bfff;
+  color: #1c1c1c;
+  box-shadow: 0 0 20px #00bfff;
+}
+
+ .floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(80px);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: #00bfff;   
+  top: 10%;
+  left: -10%;
+  animation: floatShape 8s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: #00ff80;  
+  bottom: -10%;
+  right: -10%;
+  animation: floatShape 10s ease-in-out infinite;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  background: #00bfff;   
+  bottom: 30%;
+  left: 50%;
+  animation: floatShape 12s ease-in-out infinite;
+}
+
+@keyframes floatShape {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
+
+ .profile-img {
+  max-width: 250px;
+  border: 5px solid #00bfff;
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.5);
+}
+
+ .about-subtitle, .text-muted {
+  color: #d1d1d1;  
+
+.text-muted {
+  font-size: 1.1rem;
+}
+html {
+  scroll-behavior: smooth;
+}
+  */
+/* src/styles/Home.css */
+
+.home-section {
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a, #121212);
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00ffd5, #00bfff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 1.3rem;
+}
+
+.highlight {
+  color: #00ffd5;
+  font-weight: 600;
+}
+
+.hero-button {
+  border: 2px solid #00ffd5;
+  color: #00ffd5;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #00ffd5;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px #00ffd5;
+}
+
+/* Floating Shapes */
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(80px);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: #00ffd5;
+  top: 10%;
+  left: -10%;
+  animation: floatShape 8s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: #00bfff;
+  bottom: -10%;
+  right: -10%;
+  animation: floatShape 10s ease-in-out infinite;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  background: #00ffd5;
+  bottom: 30%;
+  left: 50%;
+  animation: floatShape 12s ease-in-out infinite;
+}
+
+@keyframes floatShape {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
