@@ -22,8 +22,13 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
     const { username, password } = credentials;
 
     try {
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
+
       const response = await fetch(
-        "http://localhost:8090/portfolio-backend1/AdminLoginServlet",
+        `${backendUrl}/portfolio-backend1/AdminLoginServlet`,
+        // const response = await fetch(
+        //   "http://localhost:8090/portfolio-backend1/AdminLoginServlet",
         {
           method: "POST",
           headers: {

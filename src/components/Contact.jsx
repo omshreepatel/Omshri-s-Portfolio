@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import React, { useState } from "react";
 import { Container, Form, Button, Card } from "react-bootstrap";
 import { FaLinkedin, FaInstagram, FaGithub, FaTwitter } from "react-icons/fa"; // Import social media icons
@@ -18,18 +17,29 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Get the backend URL from environment variable
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
+      // Fallback to localhost for local dev
+
       const response = await fetch(
-        "http://localhost:8090/portfolio-backend1/ContactServlet",
+        `${backendUrl}/portfolio-backend1/ContactServlet`, // Use the backend URL from .env
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(formData),
         }
       );
-      const result = await response.text();
-      alert(result);
+
+      if (response.ok) {
+        const result = await response.text();
+        alert("Message sent successfully: " + result); // Show success message
+      } else {
+        alert("There was an error sending the message.");
+      }
     } catch (error) {
       console.error("Error submitting form", error);
+      alert("There was an error submitting your form. Please try again.");
     }
   };
 

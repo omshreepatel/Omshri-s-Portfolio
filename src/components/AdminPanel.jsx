@@ -5,15 +5,9 @@ import Swal from "sweetalert2";
 
 const AdminPanel = () => {
   const [messages, setMessages] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [internships, setInternships] = useState([]);
-  const [certifications, setCertifications] = useState([]);
 
   useEffect(() => {
     fetchMessages();
-    fetchProjects();
-    fetchInternships();
-    fetchCertifications();
   }, []);
 
   const fetchMessages = async () => {
@@ -25,42 +19,6 @@ const AdminPanel = () => {
       setMessages(data);
     } catch (error) {
       console.error("Error fetching messages:", error);
-    }
-  };
-
-  const fetchProjects = async () => {
-    try {
-      const res = await fetch(
-        "http://localhost:8090/portfolio-backend1/FetchProjectsServlet"
-      );
-      const data = await res.json();
-      setProjects(data);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    }
-  };
-
-  const fetchInternships = async () => {
-    try {
-      const res = await fetch(
-        "http://localhost:8090/portfolio-backend1/FetchInternshipsServlet"
-      );
-      const data = await res.json();
-      setInternships(data);
-    } catch (error) {
-      console.error("Error fetching internships:", error);
-    }
-  };
-
-  const fetchCertifications = async () => {
-    try {
-      const res = await fetch(
-        "http://localhost:8090/portfolio-backend1/FetchCertificationsServlet"
-      );
-      const data = await res.json();
-      setCertifications(data);
-    } catch (error) {
-      console.error("Error fetching certifications:", error);
     }
   };
 
@@ -110,65 +68,6 @@ const AdminPanel = () => {
           </div>
         )}
       </section>
-
-      {/* Projects Section */}
-      {/* <section className="mb-5">
-        <h3 className="text-secondary mb-3">🛠️ Projects</h3>
-        {projects.length === 0 ? (
-          <div className="alert alert-info">No projects found.</div>
-        ) : (
-          <div className="row">
-            {projects.map((proj) => (
-              <div key={proj.id} className="col-md-6 mb-3">
-                <div className="card h-100 shadow-sm">
-                  <div className="card-body">
-                    <h5 className="card-title">{proj.title}</h5>
-                    <p className="card-text">{proj.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </section> */}
-
-      {/* Internships Section */}
-      {/* <section className="mb-5">
-        <h3 className="text-secondary mb-3">🏢 Internships</h3>
-        {internships.length === 0 ? (
-          <div className="alert alert-info">No internships found.</div>
-        ) : (
-          <div className="list-group">
-            {internships.map((intern) => (
-              <div
-                key={intern.id}
-                className="list-group-item list-group-item-action"
-              >
-                <strong>{intern.company}</strong> - {intern.role}
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
-      
-      <section className="mb-5">
-        <h3 className="text-secondary mb-3">🏆 Certifications</h3>
-        {certifications.length === 0 ? (
-          <div className="alert alert-info">No certifications found.</div>
-        ) : (
-          <div className="list-group">
-            {certifications.map((cert) => (
-              <div
-                key={cert.id}
-                className="list-group-item list-group-item-action"
-              >
-                <strong>{cert.name}</strong> - {cert.organization}
-              </div>
-            ))}
-          </div>
-        )}
-      </section> */}
     </div>
   );
 };
