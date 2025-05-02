@@ -17,13 +17,15 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Get the backend URL from the environment variable
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
 
       const response = await fetch(
         `${backendUrl}/portfolio-backend1/ContactServlet`,
         {
+          // const response = await fetch(
+          //   "http://localhost:8090/portfolio-backend1/ContactServlet",
+          //   {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(formData),
@@ -34,8 +36,7 @@ const Contact = () => {
         const result = await response.text();
         alert("Message sent successfully: " + result); // Show success message
       } else {
-        const errorMessage = await response.text();
-        alert("Error: " + errorMessage);
+        alert("There was an error sending the message.");
       }
     } catch (error) {
       console.error("Error submitting form", error);
