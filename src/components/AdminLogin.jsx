@@ -36,7 +36,7 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
           body: `username=${encodeURIComponent(
             username
           )}&password=${encodeURIComponent(password)}`,
-          credentials: "include", // Send cookies/session
+          // credentials: "include", // Send cookies/session
         }
       );
 
