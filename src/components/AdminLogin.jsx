@@ -1,3 +1,4 @@
+// src/admin/components/AdminLogin.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -21,13 +22,14 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
     const { username, password } = credentials;
 
     try {
-      // Get the backend URL from the environment variable
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
       console.log("Backend URL:", backendUrl);
 
       const response = await fetch(
         `${backendUrl}/portfolio-backend1/AdminLoginServlet`,
+        // const response = await fetch(
+        //   "http://localhost:8090/portfolio-backend1/AdminLoginServlet",
         {
           method: "POST",
           headers: {
@@ -36,7 +38,7 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
           body: `username=${encodeURIComponent(
             username
           )}&password=${encodeURIComponent(password)}`,
-          // credentials: "include", // Send cookies/session
+          credentials: "include", // Send cookies/session
         }
       );
 

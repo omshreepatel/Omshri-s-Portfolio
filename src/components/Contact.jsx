@@ -20,7 +20,6 @@ const Contact = () => {
       // Get the backend URL from the environment variable
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
-      console.log("Backend URL:", backendUrl);
 
       const response = await fetch(
         `${backendUrl}/portfolio-backend1/ContactServlet`,
