@@ -97,11 +97,15 @@
 // };
 
 // export default AdminLogin;
-
+// src/components/AdminLogin.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import { Container, Card, Form, Button } from "react-bootstrap";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showErrorToast,
+} from "../utils/alerts";
 
 const AdminLogin = ({ setIsAdminLoggedIn }) => {
   const [credentials, setCredentials] = useState({
@@ -134,26 +138,25 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
             username: username.trim(),
             password: password.trim(),
           }),
-          credentials: "include", // Required for session cookies
+          credentials: "include",
         }
       );
 
       const result = await response.json();
 
       if (response.ok && result.status === "success") {
-        Swal.fire("Welcome!", result.message, "success");
+        showSuccessAlert(result.message);
         setIsAdminLoggedIn(true);
         navigate("/admin/dashboard");
       } else {
-        Swal.fire("Oops!", result.message || "Invalid credentials", "error");
+        showErrorAlert(result.message || "Invalid credentials");
       }
     } catch (error) {
       console.error("Login error:", error);
-      Swal.fire("Error", "Connection failed. Please try again.", "error");
+      showErrorToast("Connection failed. Please try again.");
     }
   };
 
-  // Rest of the component remains the same
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100">
       <Card className="shadow-lg p-4 w-100" style={{ maxWidth: "400px" }}>
@@ -165,10 +168,10 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
                 type="text"
                 name="username"
                 placeholder="Username"
-                className="form-control"
                 value={credentials.username}
                 onChange={handleChange}
                 required
+                autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -176,13 +179,17 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                className="form-control"
                 value={credentials.password}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="w-100 py-2">
+            <Button
+              variant="primary"
+              type="submit"
+              className="w-100 py-2 fw-bold"
+              disabled={!credentials.username || !credentials.password}
+            >
               Login
             </Button>
           </Form>
