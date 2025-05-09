@@ -107,6 +107,7 @@ import {
   showErrorAlert,
   showErrorToast,
 } from "../utils/alerts";
+
 import { login } from "../utils/auth";
 
 const AdminLogin = ({ setIsAdminLoggedIn }) => {
@@ -144,7 +145,8 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
         showErrorAlert(result.message || "Invalid credentials");
       }
     } catch (error) {
-      showErrorToast("Connection error. Check your network.");
+      // In the catch block, replace Swal.fire with:
+      showErrorToast("Connection failed. Please try again.");
     } finally {
       setIsLoggingIn(false);
     }
