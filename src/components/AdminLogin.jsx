@@ -64,28 +64,28 @@
 //     <Card.Body>
 //       <h2 className="text-center mb-4 text-primary">Admin Login</h2>
 //       <Form onSubmit={handleSubmit}>
-// <Form.Group className="mb-3">
-//   <Form.Control
-//     type="text"
-//     name="username"
-//     placeholder="Username"
-//     className="form-control"
-//     value={credentials.username}
-//     onChange={handleChange}
-//     required
-//   />
-// </Form.Group>
-// <Form.Group className="mb-3">
-//   <Form.Control
-//     type="password"
-//     name="password"
-//     placeholder="Password"
-//     className="form-control"
-//     value={credentials.password}
-//     onChange={handleChange}
-//     required
-//   />
-// </Form.Group>
+//         <Form.Group className="mb-3">
+//           <Form.Control
+//             type="text"
+//             name="username"
+//             placeholder="Username"
+//             className="form-control"
+//             value={credentials.username}
+//             onChange={handleChange}
+//             required
+//           />
+//         </Form.Group>
+//         <Form.Group className="mb-3">
+//           <Form.Control
+//             type="password"
+//             name="password"
+//             placeholder="Password"
+//             className="form-control"
+//             value={credentials.password}
+//             onChange={handleChange}
+//             required
+//           />
+//         </Form.Group>
 //         <Button variant="primary" type="submit" className="w-100 py-2">
 //           Login
 //         </Button>
@@ -100,22 +100,15 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { Container, Card, Form, Button } from "react-bootstrap";
-import { fetchApi } from "../utils/api";
-import {
-  showSuccessAlert,
-  showErrorAlert,
-  showErrorToast,
-} from "../utils/alerts";
-
-import { login } from "../utils/auth";
 
 const AdminLogin = ({ setIsAdminLoggedIn }) => {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -124,41 +117,49 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoggingIn(true);
+    const { username, password } = credentials;
 
     try {
-      const result = await fetchApi(
-        "/portfolio-backend1/AdminLoginServlet",
-        "POST",
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
+
+      const response = await fetch(
+        `${backendUrl}/portfolio-backend1/AdminLoginServlet`,
         {
-          username: credentials.username.trim(),
-          password: credentials.password.trim(),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            username: username.trim(),
+            password: password.trim(),
+          }),
+          credentials: "include", // Required for session cookies
         }
       );
 
-      if (result.status === "success") {
-        login();
-        showSuccessAlert("Login successful!");
+      const result = await response.json();
+
+      if (response.ok && result.status === "success") {
+        Swal.fire("Welcome!", result.message, "success");
         setIsAdminLoggedIn(true);
         navigate("/admin/dashboard");
       } else {
-        showErrorAlert(result.message || "Invalid credentials");
+        Swal.fire("Oops!", result.message || "Invalid credentials", "error");
       }
     } catch (error) {
-      // In the catch block, replace Swal.fire with:
-      showErrorToast("Connection failed. Please try again.");
-    } finally {
-      setIsLoggingIn(false);
+      console.error("Login error:", error);
+      Swal.fire("Error", "Connection failed. Please try again.", "error");
     }
   };
 
+  // Rest of the component remains the same
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100">
       <Card className="shadow-lg p-4 w-100" style={{ maxWidth: "400px" }}>
         <Card.Body>
           <h2 className="text-center mb-4 text-primary">Admin Login</h2>
           <Form onSubmit={handleSubmit}>
-            {/* Form fields remain same */}
             <Form.Group className="mb-3">
               <Form.Control
                 type="text"
@@ -181,13 +182,8 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
                 required
               />
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              className="w-100 py-2"
-              disabled={isLoggingIn}
-            >
-              {isLoggingIn ? "Authenticating..." : "Login"}
+            <Button variant="primary" type="submit" className="w-100 py-2">
+              Login
             </Button>
           </Form>
         </Card.Body>

@@ -1,60 +1,10 @@
-// // src/utils/alerts.js
-// import Swal from 'sweetalert2';
-
-// // Default configuration for all alerts
-// const defaultAlertConfig = {
-//   timer: 2000,
-//   showConfirmButton: false,
-// };
-
-// // Success Alert
-// export const showSuccessAlert = (message, config = {}) => {
-//   Swal.fire({
-//     icon: 'success',
-//     title: 'Success!',
-//     text: message,
-//     ...defaultAlertConfig,
-//     ...config, // Custom config for specific alert
-//   });
-// };
-
-// // Error Alert
-// export const showErrorAlert = (message, config = {}) => {
-//   Swal.fire({
-//     icon: 'error',
-//     title: 'Error!',
-//     text: message,
-//     ...defaultAlertConfig,
-//     ...config, // Custom config for specific alert
-//   });
-// };
-
-// // Confirmation Dialog for Delete
-// export const showConfirmDialog = async (message, config = {}) => {
-//   const result = await Swal.fire({
-//     title: 'Are you sure?',
-//     text: message,
-//     icon: 'warning',
-//     showCancelButton: true,
-//     confirmButtonColor: '#3085d6',
-//     cancelButtonColor: '#d33',
-//     confirmButtonText: 'Yes!',
-//     cancelButtonText: 'No',
-//     ...config, // Custom config for specific confirmation
-//   });
-
-//   return result.isConfirmed;
-// };
-
 // src/utils/alerts.js
 import Swal from 'sweetalert2';
 
-// Toast configuration
-const toastConfig = {
-  toast: true,
-  position: 'top-end',
+// Default configuration for all alerts
+const defaultAlertConfig = {
+  timer: 2000,
   showConfirmButton: false,
-  timer: 3000
 };
 
 // Success Alert
@@ -63,35 +13,23 @@ export const showSuccessAlert = (message, config = {}) => {
     icon: 'success',
     title: 'Success!',
     text: message,
-    ...toastConfig,
-    ...config
+    ...defaultAlertConfig,
+    ...config, // Custom config for specific alert
   });
 };
 
-// Error Alert (Full Page)
+// Error Alert
 export const showErrorAlert = (message, config = {}) => {
   Swal.fire({
     icon: 'error',
     title: 'Error!',
     text: message,
-    timer: 2000,
-    showConfirmButton: false,
-    ...config
+    ...defaultAlertConfig,
+    ...config, // Custom config for specific alert
   });
 };
 
-// Error Toast (Small Notification)
-export const showErrorToast = (message, config = {}) => {
-  Swal.fire({
-    icon: 'error',
-    title: 'Error!',
-    text: message,
-    ...toastConfig,
-    ...config
-  });
-};
-
-// Confirmation Dialog
+// Confirmation Dialog for Delete
 export const showConfirmDialog = async (message, config = {}) => {
   const result = await Swal.fire({
     title: 'Are you sure?',
@@ -102,7 +40,8 @@ export const showConfirmDialog = async (message, config = {}) => {
     cancelButtonColor: '#d33',
     confirmButtonText: 'Yes!',
     cancelButtonText: 'No',
-    ...config
+    ...config, // Custom config for specific confirmation
   });
+
   return result.isConfirmed;
 };
