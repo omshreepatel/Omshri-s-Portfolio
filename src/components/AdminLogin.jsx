@@ -22,11 +22,11 @@ const AdminLogin = ({ setIsAdminLoggedIn }) => {
     const { username, password } = credentials;
 
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
+      // const backendUrl =
+      //   import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
 
       const response = await fetch(
-        `${backendUrl}/portfolio-backend1/AdminLoginServlet`,
+        "https://omshri-portfolio-backend.onrender.com/portfolio-backend1/AdminLoginServlet",
         {
           // const response = await fetch(
           //   "http://localhost:8090/portfolio-backend1/AdminLoginServlet",

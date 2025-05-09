@@ -17,11 +17,11 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
+      // const backendUrl =
+      //   import.meta.env.VITE_BACKEND_URL || "http://localhost:8090";
 
       const response = await fetch(
-        `${backendUrl}/portfolio-backend1/ContactServlet`,
+        " https://omshri-portfolio-backend.onrender.com/portfolio-backend1/ContactServlet",
         {
           // const response = await fetch(
           //   "http://localhost:8090/portfolio-backend1/ContactServlet",
