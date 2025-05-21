@@ -1,15 +1,6 @@
 // src/utils/alerts.js
 import Swal from 'sweetalert2';
 
-// Toast configuration
-const toastConfig = {
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true
-};
-
 // Default configuration for all alerts
 const defaultAlertConfig = {
   timer: 2000,
@@ -23,7 +14,7 @@ export const showSuccessAlert = (message, config = {}) => {
     title: 'Success!',
     text: message,
     ...defaultAlertConfig,
-    ...config,
+    ...config, // Custom config for specific alert
   });
 };
 
@@ -34,17 +25,8 @@ export const showErrorAlert = (message, config = {}) => {
     title: 'Error!',
     text: message,
     ...defaultAlertConfig,
-    ...config,
+    ...config, // Custom config for specific alert
   });
-};
-
-// Error Toast (Added missing export)
-export const showErrorToast = (message, config = {}) => {
-  Swal.mixin({
-    icon: 'error',
-    ...toastConfig,
-    ...config,
-  }).fire(message);
 };
 
 // Confirmation Dialog for Delete
@@ -58,7 +40,7 @@ export const showConfirmDialog = async (message, config = {}) => {
     cancelButtonColor: '#d33',
     confirmButtonText: 'Yes!',
     cancelButtonText: 'No',
-    ...config,
+    ...config, // Custom config for specific confirmation
   });
 
   return result.isConfirmed;
